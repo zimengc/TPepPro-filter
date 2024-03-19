@@ -9,6 +9,8 @@
 
 3. **filter_organism**: This module is used to filter interactions based on interested organism information to match specific organisms.
 
+4. **get_pubmed_id**: Fetch PubMed IDs of papers that contain pairs of PDB IDs.
+
 ## Module Details
 
 ### 1. Filter Module
@@ -45,6 +47,15 @@ This module is used to filter interactions based on interested organism informat
 - `species_1`: Species 1, default is "Homo sapiens".
 - `species_2`: Species 2, default is "Homo sapiens".
 
+### 4. Fetch Pubmed ID Module
+
+#### Functionality:
+This module is used to fetch published PubMed IDs that contain pairs of PDB IDs.
+
+#### Parameters:
+- `input_file`: Path to the input CSV file.
+- `output_file`: Path to the output CSV file, with two extra columns of PubMed IDs.
+  
 ## Usage Example
 
 ```bash
