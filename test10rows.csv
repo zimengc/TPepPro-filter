@@ -1,0 +1,10 @@
+receptor,peptide,class_label,预测为正类的概率值,predict_label
+5wa1_A,5wa1_B,1,0.994267523,1
+6kwo_A,5iq7_P,0,2.21E-08,0
+5tbd_K,6qnx_C,0,0.261818647,0
+6tq0_I,6tq0_H,1,0.999552548,1
+6m8r_H,5xof_O,0,0.00033411,0
+2m0u_A,2m0u_B,1,0.992400527,1
+5y3r_C,3oak_D,0,0.999996901,1
+5xln_A,6iqj_C,0,5.22E-05,0
+1pjn_B,1pjn_A,1,0.999999881,1
