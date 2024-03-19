@@ -2,6 +2,7 @@ import argparse
 import filter
 import add_organism
 import filter_organism
+import PubMed_search
 
 def main(args):
     if args.command == 'filter':
@@ -10,6 +11,8 @@ def main(args):
         add_organism.add_organism_to_csv(args.input_file, args.output_file)
     elif args.command == 'filter_organism':
         filter_organism.filter_homo_sapiens(args.input_file, args.output_file, args.receptor_organism, args.peptide_organism)
+    elif args.command == 'get_pubmed_id':
+        PubMed_search.get_pubmed_id(args.input_file, args.output_file)
 
 if __name__ == "__main__":
     top_parser = argparse.ArgumentParser(description="Main Command Line Interface")
@@ -36,6 +39,11 @@ if __name__ == "__main__":
     filter_organism_parser.add_argument("output_file", help="Output CSV file")
     filter_organism_parser.add_argument("--species_1", default="Homo sapiens", help="Species 1 (default: Homo sapiens)")
     filter_organism_parser.add_argument("--species_2", default="Homo sapiens", help="Species 2 (default: Homo sapiens)")
+
+    # Parser for 'get_pubmed_id' command
+    pubmed_parser = subparsers.add_parser('get_pubmed_id', help="Fetch PubMed IDs of papers from PDB IDs")
+    pubmed_parser.add_argument("input_file", help="Input CSV file containing PDB IDs")
+    pubmed_parser.add_argument("output_file", help="Output CSV file with added PubMed IDs")
 
     # 解析命令行参数
     # args = parser.parse_args()
