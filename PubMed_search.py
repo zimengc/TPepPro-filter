@@ -2,9 +2,17 @@ import csv
 import argparse
 from Bio import Entrez
 
-def search_pubmed(pdb_id_1, pdb_id_2):
+def search_pubmed_pdbid(pdb_id_1, pdb_id_2):
     Entrez.email = "your.email@example.com"
     query = f"({pdb_id_1}[PDB] AND {pdb_id_2}[PDB])"
+    handle = Entrez.esearch(db="pubmed", term=query)
+    record = Entrez.read(handle)
+    pubmed_ids = record["IdList"]
+    return pubmed_ids
+
+def search_pubmed(gene_name_1, gene_name_2):
+    Entrez.email = "your.email@example.com"
+    query = f"({gene_name_1}[Gene name] AND {gene_name_2}[Gene name])"
     handle = Entrez.esearch(db="pubmed", term=query)
     record = Entrez.read(handle)
     pubmed_ids = record["IdList"]
